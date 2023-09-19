@@ -2,11 +2,10 @@
 
 set -eu
 
-image="ghcr.io/nicksellen/postal:2.1.4-frozenstringpatch"
+image="ghcr.io/nicksellen/postal-fix:2.1.4-frozenstringpatch"
 
 docker buildx build -t "$image" .
 
 if [[ "$*" == *"--push"* ]]; then
-  echo "WWOULD PUSH!"
   docker push "$image"
 fi
